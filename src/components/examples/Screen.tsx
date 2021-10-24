@@ -1,15 +1,14 @@
 import React from 'react';
 import {StyleSheet, View, Platform} from 'react-native';
-import PropTypes from 'prop-types';
 import {useTheme} from '@react-navigation/native';
 import {connect} from 'react-redux';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
-interface FullName {
-  navigation: any;
-}
-
-const Screen = (props: FullName) => {
-  const {colors, fonts} = useTheme();
+const Screen: React.FC<{navigation: any}> = ({navigation}) => {
+  const {colors, fonts} = useTheme() as any;
   return <View style={{flex: 1}}></View>;
 };
 

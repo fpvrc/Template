@@ -8,9 +8,15 @@ const styles = {
       text: 'rgb(28, 28, 30)',
       border: 'rgb(199, 199, 204)',
       notification: 'rgb(255, 69, 58)',
+      backgroundWhite: '#FFFFFF',
     },
     fonts: {
-      regular: 'Inter-Regular',
+      regular: 'Sora-Regular',
+      bold: 'Sora-Bold',
+      medium: 'Sora-Medium',
+      semiBold: 'Sora-SemiBold',
+      extraBold: 'Sora-ExtraBold',
+      thin: 'Sora-Thin',
     },
   },
 };
