@@ -5,10 +5,7 @@ import {
   Platform,
   Text,
   TextInput,
-  Alert,
   TouchableOpacity,
-  Keyboard,
-  TouchableWithoutFeedback,
 } from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {connect} from 'react-redux';
@@ -18,9 +15,8 @@ import {
 } from 'react-native-responsive-screen';
 import CountryPicker from 'react-native-region-country-picker';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
-import auth from '@react-native-firebase/auth';
 import ProgressBar from 'react-native-progress/Bar';
-import {TouchableHighlight} from 'react-native-gesture-handler';
+import {signInPhone} from '../../api/Auth';
 
 const options = {
   enableVibrateFallback: false,
@@ -29,8 +25,7 @@ const options = {
 
 const SignInPhone: React.FC<{
   navigation: any;
-  signInPhone: (phone_number: string) => void;
-}> = ({navigation, signInPhone}) => {
+}> = ({navigation}) => {
   const {colors, fonts} = useTheme() as any;
   const [phone_number, setNumber] = useState('');
   const [verification_code, setVerificationCode] = useState('');
@@ -62,7 +57,7 @@ const SignInPhone: React.FC<{
       try {
         (async () => {
           setLoading('phone_number');
-          const confirmation = await auth().signInWithPhoneNumber(
+          const confirmation = await signInPhone(
             `+${countryData}${phone_number}`,
           );
           setLoading('');
@@ -93,17 +88,6 @@ const SignInPhone: React.FC<{
 
   useEffect(() => {
     inputRef.current.focus();
-  }, []);
-
-  const onAuthStateChanged = (user: any) => {
-    if (user) {
-      Alert.alert('Hi', `${user}`);
-    }
-  };
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
   }, []);
 
   return (

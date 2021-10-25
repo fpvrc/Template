@@ -8,11 +8,16 @@ import {
 } from 'react-native-responsive-screen';
 
 import Button from '../../components/buttons/regular';
+import {signInApple} from '../../api/Auth';
+
+import auth from '@react-native-firebase/auth';
 
 const Landing: React.FC<{navigation: any}> = ({navigation}) => {
   const {colors, fonts} = useTheme() as any;
 
   const goPhone = () => navigation.navigate('SignInPhone');
+  const goApple = () => signInApple();
+
   return (
     <View
       style={{
@@ -21,14 +26,21 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
         padding: wp('4%'),
       }}>
       <View style={{marginTop: hp('35%')}}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontFamily: fonts.bold,
-            color: colors.primaryBlack,
+        <TouchableOpacity
+          activeOpacity={1}
+          onPress={() => {
+            auth().signOut();
           }}>
-          Hello!
-        </Text>
+          <Text
+            style={{
+              fontSize: 30,
+              fontFamily: fonts.bold,
+              color: colors.primaryBlack,
+            }}>
+            Hello!
+          </Text>
+        </TouchableOpacity>
+
         <Text
           style={{
             fontSize: 30,
@@ -59,7 +71,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
           styles={{marginTop: hp('2.5%')}}
         />
         <Button
-          onPress={() => console.log('hi')}
+          onPress={goApple}
           backgroundColor={colors.backgroundLightBlue}
           textColor={colors.primaryWhite}
           text={'Continue with Apple'}

@@ -1,10 +1,11 @@
-import React, {useRef} from 'react';
-import {useColorScheme} from 'react-native';
+import React, {useRef, useEffect} from 'react';
+import {useColorScheme, Alert} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {navigationRef} from './lib/Navigation';
 import styles from './styles';
 import analytics from '@react-native-firebase/analytics';
+import auth from '@react-native-firebase/auth';
 
 //Screens
 import Landing from './screens/landing';
@@ -14,6 +15,17 @@ const MainStack = createNativeStackNavigator();
 const Navigation = ({}) => {
   const scheme = useColorScheme();
   const routeNameRef = useRef() as any;
+
+  const onAuthStateChanged = (user: any) => {
+    if (user) {
+      Alert.alert('Hi', `${user}`);
+    }
+  };
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
 
   const readyUp = () => {
     routeNameRef.current = navigationRef!.current!.getCurrentRoute()!.name;
