@@ -1,5 +1,15 @@
 import React, {useEffect, useState, useRef} from 'react';
-import {StyleSheet, View, Platform, Text, TextInput, Alert} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Platform,
+  Text,
+  TextInput,
+  Alert,
+  TouchableOpacity,
+  Keyboard,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import {
@@ -10,6 +20,7 @@ import CountryPicker from 'react-native-region-country-picker';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import auth from '@react-native-firebase/auth';
 import ProgressBar from 'react-native-progress/Bar';
+import {TouchableHighlight} from 'react-native-gesture-handler';
 
 const options = {
   enableVibrateFallback: false,
@@ -22,26 +33,28 @@ const SignInPhone: React.FC<{
 }> = ({navigation, signInPhone}) => {
   const {colors, fonts} = useTheme() as any;
   const [phone_number, setNumber] = useState('');
+  const [verification_code, setVerificationCode] = useState('');
   const [countryData, setCountryData] = useState('1');
   const [confirm, setConfirm] = useState(null) as any;
   const [loading, setLoading] = useState('');
   const inputRef = useRef<any>();
   const inputRef2 = useRef<any>();
-  let countryRef;
 
   const changeText = (new_text: string) => {
-    ReactNativeHapticFeedback.trigger('impactMedium', options);
+    ReactNativeHapticFeedback.trigger('impactLight', options);
     setNumber(new_text);
+    setLoading('');
   };
   const changeCode = (new_text: string) => {
-    console.log(new_text);
+    ReactNativeHapticFeedback.trigger('impactLight', options);
+    setVerificationCode(new_text);
+    setLoading('');
   };
+
   const reFocus = () => inputRef.current.focus();
+  const reFocus2 = () => inputRef2.current.focus();
   const newCountry = (data: any) => {
     setCountryData(data.callingCode);
-  };
-  const initCountryRef = (ref: any) => {
-    countryRef = ref;
   };
 
   useEffect(() => {
@@ -49,16 +62,12 @@ const SignInPhone: React.FC<{
       try {
         (async () => {
           setLoading('phone_number');
-          console.log(`+${countryData}${phone_number}`);
           const confirmation = await auth().signInWithPhoneNumber(
             `+${countryData}${phone_number}`,
           );
-          console.log('done');
-          console.log(confirmation);
           setLoading('');
-          inputRef.current.blur();
-          inputRef2.current.focus();
           setConfirm(confirmation);
+          inputRef2.current.focus();
         })();
       } catch (error) {
         console.log(error);
@@ -69,10 +78,23 @@ const SignInPhone: React.FC<{
   }, [phone_number]);
 
   useEffect(() => {
-    inputRef.current.focus();
-  });
+    if (verification_code.length === 6) {
+      try {
+        (async () => {
+          setLoading('code');
+          await confirm.confirm(verification_code);
+          setLoading('');
+        })();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }, [verification_code]);
 
-  // Handle user state changes
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   const onAuthStateChanged = (user: any) => {
     if (user) {
       Alert.alert('Hi', `${user}`);
@@ -92,17 +114,18 @@ const SignInPhone: React.FC<{
         padding: wp('4%'),
       }}>
       <View style={{marginTop: hp('35%')}}>
-        <Text
-          style={{
-            fontSize: 30,
-            fontFamily: fonts.bold,
-            color: colors.primaryBlack,
-          }}>
-          Phone Number
-        </Text>
+        <TouchableOpacity onPress={() => inputRef2.current.focus()}>
+          <Text
+            style={{
+              fontSize: 30,
+              fontFamily: fonts.bold,
+              color: colors.primaryBlack,
+            }}>
+            Phone Number
+          </Text>
+        </TouchableOpacity>
         <View style={{flexDirection: 'row', marginTop: hp('3%')}}>
           <CountryPicker
-            countryPickerRef={initCountryRef}
             enable={true}
             darkMode={false}
             countryCode={countryData === '' ? 'US' : countryData}
@@ -146,6 +169,8 @@ const SignInPhone: React.FC<{
             keyboardType="numeric"
             keyboardAppearance={'light'}
             onChangeText={changeText}
+            maxLength={10}
+            selectionColor={colors.backgroundBlack}
             style={{
               height: wp('10%'),
               fontSize: 30,
@@ -156,21 +181,15 @@ const SignInPhone: React.FC<{
             }}
           />
         </View>
-        <View
-          style={{
-            width: wp('92%'),
-            height: hp('.1%'),
-            backgroundColor: colors.backgroundLightGrey,
-          }}
-        />
-        <ProgressBar
-          indeterminate={true}
-          width={wp('92%')}
-          borderWidth={0}
-          height={hp('.1%')}
-          useNativeDriver={true}
-          style={{display: loading === 'phone_number' ? 'flex' : 'none'}}
-        />
+        {loading === 'phone_number' ? (
+          <ProgressBar
+            indeterminate={true}
+            width={wp('92%')}
+            borderWidth={0}
+            height={hp('.1%')}
+            useNativeDriver={true}
+          />
+        ) : null}
         <TextInput
           placeholder={'code...'}
           ref={inputRef2 as any}
@@ -178,6 +197,7 @@ const SignInPhone: React.FC<{
           keyboardAppearance={'light'}
           onChangeText={changeCode}
           textContentType="oneTimeCode"
+          selectionColor={colors.backgroundBlack}
           style={{
             height: wp('10%'),
             fontSize: 30,
@@ -187,14 +207,21 @@ const SignInPhone: React.FC<{
             marginTop: hp('3%'),
           }}
         />
-        <View
-          style={{
-            width: wp('92%'),
-            height: hp('.1%'),
-            backgroundColor: colors.backgroundLightGrey,
-          }}
-        />
       </View>
+      {loading === 'code' ? (
+        <ProgressBar
+          indeterminate={true}
+          width={wp('92%')}
+          borderWidth={0}
+          height={hp('.1%')}
+          useNativeDriver={true}
+        />
+      ) : null}
+      <TouchableOpacity
+        activeOpacity={1}
+        style={{flex: 1}}
+        onPress={reFocus2}
+      />
     </View>
   );
 };
