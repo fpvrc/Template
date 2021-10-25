@@ -8,6 +8,7 @@ import analytics from '@react-native-firebase/analytics';
 
 //Screens
 import Landing from './screens/landing';
+import SignInPhone from './screens/signInPhone';
 
 const MainStack = createNativeStackNavigator();
 const Navigation = ({}) => {
@@ -41,6 +42,7 @@ const Navigation = ({}) => {
           headerShown: false,
         }}>
         <MainStack.Screen name="Landing" component={Landing} />
+        <MainStack.Screen name="SignInPhone" component={SignInPhone} />
       </MainStack.Navigator>
     </NavigationContainer>
   );

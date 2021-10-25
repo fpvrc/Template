@@ -15,7 +15,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1567767EDEE54C1DBA66760A /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3908F763A2634B9A86128B50 /* Sora-Medium.ttf */; };
 		256AC02FC3604F40943C2F23 /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58A003B3C5364D61911D407B /* Sora-ExtraLight.ttf */; };
-		5EDF2EFD2726339000834B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF2EFC2726339000834B0A /* GoogleService-Info.plist */; };
+		5EDF2F002726511F00834B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */; };
 		6172F2D35A4C3AA820D92908 /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-Template.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-Template-TemplateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Template-TemplateTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -49,7 +49,8 @@
 		1D0AE47A65C8663E3B452821 /* Pods-Template-TemplateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template-TemplateTests.release.xcconfig"; path = "Target Support Files/Pods-Template-TemplateTests/Pods-Template-TemplateTests.release.xcconfig"; sourceTree = "<group>"; };
 		3908F763A2634B9A86128B50 /* Sora-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora-Medium.ttf"; path = "../assets/fonts/Sora-Medium.ttf"; sourceTree = "<group>"; };
 		58A003B3C5364D61911D407B /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora-ExtraLight.ttf"; path = "../assets/fonts/Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
-		5EDF2EFC2726339000834B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5EDF2EFE272634BC00834B0A /* Template.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Template.entitlements; path = Template/Template.entitlements; sourceTree = "<group>"; };
+		5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-Template-TemplateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Template-TemplateTests.debug.xcconfig"; path = "Target Support Files/Pods-Template-TemplateTests/Pods-Template-TemplateTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Template/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		13B07FAE1A68108700A75B9A /* Template */ = {
 			isa = PBXGroup;
 			children = (
+				5EDF2EFE272634BC00834B0A /* Template.entitlements */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -149,7 +151,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				5EDF2EFC2726339000834B0A /* GoogleService-Info.plist */,
+				5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* Template */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TemplateTests */,
@@ -286,7 +288,7 @@
 				0B3A60B81B664B0E9EC603E0 /* Sora-Light.ttf in Resources */,
 				1567767EDEE54C1DBA66760A /* Sora-Medium.ttf in Resources */,
 				CCD2B236EC2A452989FFA878 /* Sora-Regular.ttf in Resources */,
-				5EDF2EFD2726339000834B0A /* GoogleService-Info.plist in Resources */,
+				5EDF2F002726511F00834B0A /* GoogleService-Info.plist in Resources */,
 				8BBFE64B9897492386D1E3B2 /* Sora-SemiBold.ttf in Resources */,
 				EE6708FCEB9243F3AA5A6225 /* Sora-Thin.ttf in Resources */,
 			);
@@ -541,7 +543,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Template/Template.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 757MRUDF39;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Template/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -553,8 +559,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.templatefpvrc;
 				PRODUCT_NAME = Template;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -567,7 +574,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Template/Template.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 757MRUDF39;
 				INFOPLIST_FILE = Template/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,8 +589,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.templatefpvrc;
 				PRODUCT_NAME = Template;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

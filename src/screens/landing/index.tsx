@@ -11,6 +11,8 @@ import Button from '../../components/buttons/regular';
 
 const Landing: React.FC<{navigation: any}> = ({navigation}) => {
   const {colors, fonts} = useTheme() as any;
+
+  const goPhone = () => navigation.navigate('SignInPhone');
   return (
     <View
       style={{
@@ -18,7 +20,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
         backgroundColor: colors.backgroundWhite,
         padding: wp('4%'),
       }}>
-      <View style={{marginTop: hp('40%')}}>
+      <View style={{marginTop: hp('35%')}}>
         <Text
           style={{
             fontSize: 30,
@@ -48,7 +50,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
       </View>
       <View style={{marginTop: hp('4%')}}>
         <Button
-          onPress={() => console.log('hi')}
+          onPress={goPhone}
           backgroundColor={colors.backgroundLightBlue}
           textColor={colors.primaryWhite}
           text={'Continue with Phone'}
