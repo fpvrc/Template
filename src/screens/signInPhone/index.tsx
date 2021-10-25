@@ -98,16 +98,14 @@ const SignInPhone: React.FC<{
         padding: wp('4%'),
       }}>
       <View style={{marginTop: hp('35%')}}>
-        <TouchableOpacity onPress={() => inputRef2.current.focus()}>
-          <Text
-            style={{
-              fontSize: 30,
-              fontFamily: fonts.bold,
-              color: colors.primaryBlack,
-            }}>
-            Phone Number
-          </Text>
-        </TouchableOpacity>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: fonts.bold,
+            color: colors.primaryBlack,
+          }}>
+          Phone Number
+        </Text>
         <View style={{flexDirection: 'row', marginTop: hp('3%')}}>
           <CountryPicker
             enable={true}
