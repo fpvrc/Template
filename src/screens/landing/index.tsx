@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Platform, Text} from 'react-native';
+import {StyleSheet, View, Platform, Text, TouchableOpacity} from 'react-native';
 import {useTheme} from '@react-navigation/native';
 import {connect} from 'react-redux';
 import {
@@ -7,30 +7,88 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const backgroundImage = require('./path/to/image.png');
+import Button from '../../components/buttons/regular';
 
 const Landing: React.FC<{navigation: any}> = ({navigation}) => {
   const {colors, fonts} = useTheme() as any;
   return (
-    <View style={{flex: 1, backgroundColor: colors.backgroundWhite}}>
-      <Text
-        style={{
-          fontSize: 30,
-          fontWeight: 'bold',
-          fontFamily: fonts.regular,
-          marginTop: hp('10%'),
-        }}>
-        React Native Template
-      </Text>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: colors.backgroundWhite,
+        padding: wp('4%'),
+      }}>
+      <View style={{marginTop: hp('40%')}}>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: fonts.bold,
+            color: colors.primaryBlack,
+          }}>
+          Hello!
+        </Text>
+        <Text
+          style={{
+            fontSize: 30,
+            fontFamily: fonts.bold,
+            color: colors.primaryBlack,
+          }}>
+          Project Starter
+        </Text>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: fonts.regular,
+            color: colors.primaryBlack,
+            marginTop: hp('.7%'),
+            marginLeft: wp('.5%'),
+          }}>
+          Create an account or login
+        </Text>
+      </View>
+      <View style={{marginTop: hp('4%')}}>
+        <Button
+          onPress={() => console.log('hi')}
+          backgroundColor={colors.backgroundLightBlue}
+          textColor={colors.primaryWhite}
+          text={'Continue with Phone'}
+          icon={require(`../../../assets/icons/phone/phone.png`)}
+          activeOpacity={1}
+          styles={{marginTop: hp('2.5%')}}
+        />
+        <Button
+          onPress={() => console.log('hi')}
+          backgroundColor={colors.backgroundLightBlue}
+          textColor={colors.primaryWhite}
+          text={'Continue with Apple'}
+          icon={require(`../../../assets/icons/apple/apple.png`)}
+          activeOpacity={1}
+          styles={{marginTop: hp('2.5%')}}
+        />
+        <Button
+          onPress={() => console.log('hi')}
+          backgroundColor={colors.backgroundLightBlue}
+          textColor={colors.primaryWhite}
+          text={'Continue with Google'}
+          icon={require(`../../../assets/icons/google/google.png`)}
+          activeOpacity={1}
+          styles={{marginTop: hp('2.5%')}}
+        />
+        <Button
+          onPress={() => console.log('hi')}
+          backgroundColor={colors.backgroundLightBlue}
+          textColor={colors.primaryWhite}
+          text={'Continue with Facebook'}
+          icon={require(`../../../assets/icons/facebook/facebook.png`)}
+          activeOpacity={1}
+          styles={{marginTop: hp('2.5%')}}
+        />
+      </View>
     </View>
   );
 };
 
-const mapStateToProps = (state: object) => ({});
-
-const mapDispatchToProps = (dispatch: any) => ({});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Landing);
+export default Landing;
 
 const styles = StyleSheet.create({
   ...Platform.select({
