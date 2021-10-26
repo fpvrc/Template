@@ -21,22 +21,38 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>fb288565076450005</string>
-  </array>
-  </dict>
-</array>
-<key>FacebookAppID</key>
-<string>288565076450005</string>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb288565076450005</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.838897338513-lrs0894qlk0a4ffp03dsjtm33k43co5k</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.templatefpvrc</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>288565076450005</string>
+	<key>FacebookClientToken</key>
+	<string>b7aedae433a611e8ebdf191e5005fbcf</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-<key>FacebookClientToken</key>
-<string>b7aedae433a611e8ebdf191e5005fbcf</string>
-<key>FacebookDisplayName</key>
-<string>Template</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
+	<key>FacebookDisplayName</key>
+	<string>Template</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

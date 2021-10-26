@@ -6,20 +6,21 @@ import {navigationRef} from './lib/Navigation';
 import styles from './styles';
 import analytics from '@react-native-firebase/analytics';
 import auth from '@react-native-firebase/auth';
+import {connect} from 'react-redux';
+import {doSetUser} from './redux/actions/User';
 
 //Screens
 import Landing from './screens/landing';
 import SignInPhone from './screens/signInPhone';
 
 const MainStack = createNativeStackNavigator();
-const Navigation = ({}) => {
+const Navigation: React.FC<{setUser: (user: object) => void}> = ({setUser}) => {
   const scheme = useColorScheme();
   const routeNameRef = useRef() as any;
 
   const onAuthStateChanged = (user: any) => {
-    if (user) {
-      Alert.alert('Hi', `${user}`);
-    }
+    Alert.alert('Hi', `${user}`);
+    setUser(user);
   };
 
   useEffect(() => {
@@ -60,4 +61,10 @@ const Navigation = ({}) => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = (state: object) => ({});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  setUser: (user: object) => dispatch(doSetUser(user)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
