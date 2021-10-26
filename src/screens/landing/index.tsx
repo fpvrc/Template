@@ -8,7 +8,7 @@ import {
 } from 'react-native-responsive-screen';
 
 import Button from '../../components/buttons/regular';
-import {signInApple, signInGoogle} from '../../api/Auth';
+import {signInApple, signInFacebook, signInGoogle} from '../../api/Auth';
 
 import auth from '@react-native-firebase/auth';
 
@@ -18,6 +18,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
   const goPhone = () => navigation.navigate('SignInPhone');
   const goApple = () => signInApple();
   const goGoogle = () => signInGoogle();
+  const goFacebook = () => signInFacebook();
 
   return (
     <View
@@ -90,7 +91,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
           styles={{marginTop: hp('2.5%')}}
         />
         <Button
-          onPress={() => console.log('hi')}
+          onPress={goFacebook}
           backgroundColor={colors.backgroundLightBlue}
           textColor={colors.primaryWhite}
           text={'Continue with Facebook'}

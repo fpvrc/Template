@@ -6,6 +6,7 @@ import {
   AppleButton,
 } from '@invertase/react-native-apple-authentication';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {LoginManager, AccessToken} from 'react-native-fbsdk-next';
 
 export const signInPhone = async phone_number => {
   try {
@@ -40,16 +41,37 @@ export const signInApple = async () => {
 
 export const signInGoogle = async () => {
   try {
-    console.log('hi');
     GoogleSignin.configure({
       webClientId: '',
     });
-    console.log('hi');
     const {idToken} = await GoogleSignin.signIn();
-    console.log('hi');
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    console.log('hi');
     const userCredential = await auth().signInWithCredential(googleCredential);
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
+};
+
+export const signInFacebook = async () => {
+  try {
+    const result = await LoginManager.logInWithPermissions([
+      'public_profile',
+      'email',
+    ]);
+    if (result.isCancelled) {
+      throw 'User cancelled the login process';
+    }
+    const data = await AccessToken.getCurrentAccessToken();
+    if (!data) {
+      throw 'Something went wrong obtaining access token';
+    }
+    const facebookCredential = auth.FacebookAuthProvider.credential(
+      data.accessToken,
+    );
+    const userCredential = await auth().signInWithCredential(
+      facebookCredential,
+    );
   } catch (error: any) {
     console.log(error);
     throw new Error(error);
