@@ -9,16 +9,19 @@ import {
 
 import Button from '../../components/buttons/regular';
 import {signInApple, signInFacebook, signInGoogle} from '../../api/Auth';
+import {doLogout} from '../../redux/actions/Auth';
 
-import auth from '@react-native-firebase/auth';
-
-const Landing: React.FC<{navigation: any}> = ({navigation}) => {
+const Landing: React.FC<{navigation: any; logout: () => void}> = ({
+  navigation,
+  logout,
+}) => {
   const {colors, fonts} = useTheme() as any;
 
   const goPhone = () => navigation.navigate('SignInPhone');
   const goApple = () => signInApple();
   const goGoogle = () => signInGoogle();
   const goFacebook = () => signInFacebook();
+  const goLogout = () => logout();
 
   return (
     <View
@@ -28,11 +31,7 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
         padding: wp('4%'),
       }}>
       <View style={{marginTop: hp('35%')}}>
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => {
-            auth().signOut();
-          }}>
+        <TouchableOpacity activeOpacity={1} onPress={goLogout}>
           <Text
             style={{
               fontSize: 30,
@@ -104,7 +103,13 @@ const Landing: React.FC<{navigation: any}> = ({navigation}) => {
   );
 };
 
-export default Landing;
+const mapStateToProps = (state: object) => ({});
+
+const mapDispatchToProps = (dispatch: any) => ({
+  logout: () => dispatch(doLogout()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
 
 const styles = StyleSheet.create({
   ...Platform.select({

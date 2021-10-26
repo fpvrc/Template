@@ -77,3 +77,11 @@ export const signInFacebook = async () => {
     throw new Error(error);
   }
 };
+
+export const logout = async () => {
+  try {
+    auth().signOut();
+  } catch (error: any) {
+    throw new Error(error);
+  }
+};
