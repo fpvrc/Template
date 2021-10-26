@@ -15,7 +15,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1567767EDEE54C1DBA66760A /* Sora-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3908F763A2634B9A86128B50 /* Sora-Medium.ttf */; };
 		256AC02FC3604F40943C2F23 /* Sora-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 58A003B3C5364D61911D407B /* Sora-ExtraLight.ttf */; };
-		5E12C881272795FF00B22449 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E12C880272795FF00B22449 /* File.swift */; };
+		5E12C8852727A0DC00B22449 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E12C8842727A0DC00B22449 /* File.swift */; };
 		5EDF2F002726511F00834B0A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */; };
 		6172F2D35A4C3AA820D92908 /* libPods-Template.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-Template.a */; };
 		7EF68E3733C33B6898317E18 /* libPods-Template-TemplateTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-Template-TemplateTests.a */; };
@@ -51,7 +51,7 @@
 		3908F763A2634B9A86128B50 /* Sora-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora-Medium.ttf"; path = "../assets/fonts/Sora-Medium.ttf"; sourceTree = "<group>"; };
 		58A003B3C5364D61911D407B /* Sora-ExtraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Sora-ExtraLight.ttf"; path = "../assets/fonts/Sora-ExtraLight.ttf"; sourceTree = "<group>"; };
 		5E12C87F272795FF00B22449 /* Template-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Template-Bridging-Header.h"; sourceTree = "<group>"; };
-		5E12C880272795FF00B22449 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		5E12C8842727A0DC00B22449 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		5EDF2EFE272634BC00834B0A /* Template.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Template.entitlements; path = Template/Template.entitlements; sourceTree = "<group>"; };
 		5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-Template.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,7 +154,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				5E12C880272795FF00B22449 /* File.swift */,
+				5E12C8842727A0DC00B22449 /* File.swift */,
 				5EDF2EFF2726511F00834B0A /* GoogleService-Info.plist */,
 				13B07FAE1A68108700A75B9A /* Template */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -476,7 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				5E12C881272795FF00B22449 /* File.swift in Sources */,
+				5E12C8852727A0DC00B22449 /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

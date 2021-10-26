@@ -6,6 +6,7 @@
 #import <Firebase.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <React/RCTLinkingManager.h> 
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 #ifdef FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
@@ -61,6 +62,10 @@ static void InitializeFlipper(UIApplication *application) {
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
 {
   if ([[FBSDKApplicationDelegate sharedInstance] application:app openURL:url options:options]) {
+    return YES;
+  }
+
+    if ([RNGoogleSignin application:app openURL:url options:options]) {
     return YES;
   }
 

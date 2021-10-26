@@ -21,18 +21,40 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>com.googleusercontent.apps.838897338513-lrs0894qlk0a4ffp03dsjtm33k43co5k</string>
-			</array>
-		</dict>
-	</array>
+<array>
+  <dict>
+  <key>CFBundleURLSchemes</key>
+  <array>
+    <string>fb288565076450005</string>
+  </array>
+  </dict>
+</array>
+<key>FacebookAppID</key>
+<string>288565076450005</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+<key>FacebookClientToken</key>
+<string>b7aedae433a611e8ebdf191e5005fbcf</string>
+<key>FacebookDisplayName</key>
+<string>Template</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fbapi20130214</string>
+		<string>fbapi20130410</string>
+		<string>fbapi20130702</string>
+		<string>fbapi20131010</string>
+		<string>fbapi20131219</string>
+		<string>fbapi20140410</string>
+		<string>fbapi20140116</string>
+		<string>fbapi20150313</string>
+		<string>fbapi20150629</string>
+		<string>fbapi20160328</string>
+		<string>fbauth</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -47,7 +69,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Sora-Bold.ttf</string>
@@ -79,39 +101,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CFBundleURLTypes</key>
-<array>
-  <dict>
-  <key>CFBundleURLSchemes</key>
-  <array>
-    <string>fb288565076450005</string>
-  </array>
-  </dict>
-</array>
-<key>FacebookAppID</key>
-<string>288565076450005
-</string>
-<key>FacebookClientToken</key>
-<string>b7aedae433a611e8ebdf191e5005fbcf</string>
-<key>FacebookDisplayName</key>
-<string>Template</string>
-<key>LSApplicationQueriesSchemes</key>
-<array>
-  <string>fbapi</string>
-  <string>fbapi20130214</string>
-  <string>fbapi20130410</string>
-  <string>fbapi20130702</string>
-  <string>fbapi20131010</string>
-  <string>fbapi20131219</string>
-  <string>fbapi20140410</string>
-  <string>fbapi20140116</string>
-  <string>fbapi20150313</string>
-  <string>fbapi20150629</string>
-  <string>fbapi20160328</string>
-  <string>fbauth</string>
-  <string>fb-messenger-share-api</string>
-  <string>fbauth2</string>
-  <string>fbshareextension</string>
-</array>
 </dict>
 </plist>
